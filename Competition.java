@@ -155,6 +155,7 @@ public class Competition {
 				 * redundancy
 				 *****/
 				writer.println(playerChooser.getSelectedItem() + ": won against " + playerChooser2.getSelectedItem());
+				playerChooser.getSelectedItem().incrementPoints();
 				writer.println(playerChooser2.getSelectedItem() + ": lost to " + playerChooser.getSelectedItem());
 				writer.flush(); // used instead of writer.close() to stay connected to the stream
 			}
@@ -164,6 +165,7 @@ public class Competition {
 			public void actionPerformed(ActionEvent event) {
 				writer.println(playerChooser.getSelectedItem() + ": lost to " + playerChooser2.getSelectedItem());
 				writer.println(playerChooser2.getSelectedItem() + ": won against " + playerChooser.getSelectedItem());
+				playerChooser2.getSelectedItem().incrementPoints();
 				writer.flush();
 			}
 		});
@@ -171,7 +173,9 @@ public class Competition {
 		draw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				writer.println(playerChooser.getSelectedItem() + ": drew with " + playerChooser2.getSelectedItem());
+				playerChooser.getSelectedItem().incrementHalfPoints();
 				writer.println(playerChooser2.getSelectedItem() + ": drew with " + playerChooser.getSelectedItem());
+				playerChooser2.getSelectedItem().incrementHalfPoints();
 				writer.flush();
 			}
 		});
