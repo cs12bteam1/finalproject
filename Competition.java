@@ -1,3 +1,7 @@
+/**
+ *		@author Osamah Mandawi
+ *		@email oamandawi@brandeis.edu
+ */
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
