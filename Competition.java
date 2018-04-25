@@ -250,11 +250,13 @@ public class Competition {
 		JPanel panel = new AddPlayer();
 		addPlayerWindow.setContentPane(panel);
 		addPlayerWindow.setSize(500,500);
+		addPlayerWindow.setLocation(500, 700);
 		addPlayerWindow.setVisible(true);
 
 		JFrame rankingsWindow = new JFrame("Rankings");
 		JPanel rankingsPanel = new Rankings();
 		rankingsWindow.setContentPane(rankingsPanel);
+		rankingsWindow.setLocation(700, 500);
 		rankingsWindow.setSize(500,500);
 		rankingsWindow.setVisible(true);
 	}
