@@ -41,8 +41,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
   }
   
   public String toString(){
-    return "NAME: " + name + " FROM: " + nationality +
-            " AGE: " + age;
+    return "NAME: " + name;
   }
 
   public int compare(Player player1, Player player2){
