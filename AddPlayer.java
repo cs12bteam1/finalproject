@@ -17,6 +17,7 @@ public class AddPlayer extends JPanel{
 		//Font reducedFont = new Font("Verdana", Font.BOLD, 24);
 
     JLabel header = new JLabel("ADD PLAYERS!");
+    header.setForeground(Color.WHITE);
     content.add(header);
 
     header.setFont(font);
