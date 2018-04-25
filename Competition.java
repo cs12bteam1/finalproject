@@ -196,13 +196,15 @@ public class Competition {
 		panel.setBackground(Color.WHITE);
 		addPlayerWindow.setContentPane(panel);
 		addPlayerWindow.setSize(300,500);
+		addPlayerWindow.setLocation(500,0);
 		addPlayerWindow.setVisible(true);
 
 		JFrame rankingsWindow = new JFrame("Rankings");
 		rankingsPanel = new Rankings();
 		rankingsPanel.setBackground(Color.WHITE);
 		rankingsWindow.setContentPane(rankingsPanel);
-		rankingsWindow.setSize(300,0);
+		rankingsWindow.setSize(500,500);
+		rankingsWindow.setLocation(500,500);
 		rankingsWindow.setVisible(true);
 		
 		window.addWindowListener(new WindowListener() {
