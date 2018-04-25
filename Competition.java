@@ -262,7 +262,7 @@ public class Competition {
 
 		JFrame addPlayerWindow = new JFrame("Add Player");
 		JPanel panel = new AddPlayer();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLUE);
 		addPlayerWindow.setContentPane(panel);
 		addPlayerWindow.setSize(300,300);
 		addPlayerWindow.setVisible(true);
