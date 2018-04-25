@@ -20,8 +20,8 @@ import java.util.*;
 public class Competition {
 
 	public static ArrayList<Player> players = new ArrayList<Player>();
-	public static JComboBox<String> playerChooser;
-	public static JComboBox<String> playerChooser2;
+	public static JComboBox<Player> playerChooser;
+	public static JComboBox<Player> playerChooser2;
 	/********
 	 * main should be changed if we are to merge our windows in another class
 	 *******/
@@ -61,8 +61,8 @@ public class Competition {
 		vs.setFont(font);
 		vs.setForeground(Color.WHITE);
 
-		playerChooser = new JComboBox<String>();
-		playerChooser2 = new JComboBox<String>();
+		playerChooser = new JComboBox<Player>();
+		playerChooser2 = new JComboBox<Player>();
 
 		playerChooser.setFont(font);
 		playerChooser.setBackground(Color.WHITE);
@@ -110,7 +110,7 @@ public class Competition {
 
 		playerChooser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String player = (String) playerChooser.getSelectedItem(); // get selected player from the JComboBox
+				String player = playerChooser.getSelectedItem().toString(); // get selected player from the JComboBox
 				String history = ""; // create a variable to take printer's output
 				try {
 					history = iShowHistory(map, player); // call the method with map and player
@@ -130,7 +130,7 @@ public class Competition {
 		playerChooser2.addActionListener(new ActionListener() {
 			// same as above
 			public void actionPerformed(ActionEvent e) {
-				String player = (String) playerChooser2.getSelectedItem();
+				String player = playerChooser2.getSelectedItem().toString();
 				String history = "";
 				try {
 					history = iShowHistory(map, player);
@@ -155,7 +155,7 @@ public class Competition {
 				 * redundancy
 				 *****/
 				writer.println(playerChooser.getSelectedItem() + ": won against " + playerChooser2.getSelectedItem());
-				playerChooser.getSelectedItem().incrementPoints();
+				((Player)playerChooser.getSelectedItem()).incrementPoints();
 				writer.println(playerChooser2.getSelectedItem() + ": lost to " + playerChooser.getSelectedItem());
 				writer.flush(); // used instead of writer.close() to stay connected to the stream
 			}
@@ -165,7 +165,7 @@ public class Competition {
 			public void actionPerformed(ActionEvent event) {
 				writer.println(playerChooser.getSelectedItem() + ": lost to " + playerChooser2.getSelectedItem());
 				writer.println(playerChooser2.getSelectedItem() + ": won against " + playerChooser.getSelectedItem());
-				playerChooser2.getSelectedItem().incrementPoints();
+				((Player)playerChooser2.getSelectedItem()).incrementPoints();
 				writer.flush();
 			}
 		});
@@ -173,9 +173,9 @@ public class Competition {
 		draw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				writer.println(playerChooser.getSelectedItem() + ": drew with " + playerChooser2.getSelectedItem());
-				playerChooser.getSelectedItem().incrementHalfPoints();
+				((Player)playerChooser.getSelectedItem()).incrementHalfPoints();
 				writer.println(playerChooser2.getSelectedItem() + ": drew with " + playerChooser.getSelectedItem());
-				playerChooser2.getSelectedItem().incrementHalfPoints();
+			  ((Player)playerChooser2.getSelectedItem()).incrementHalfPoints();
 				writer.flush();
 			}
 		});
