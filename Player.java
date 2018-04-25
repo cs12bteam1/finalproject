@@ -14,7 +14,7 @@ public class Player implements Comparator<Player>{
     this.rating = rating;
     points = 0;
   }
-  public int getPoints(){
+  public double getPoints(){
     return points;
   }
   public void incrementPoints(){
