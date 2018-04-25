@@ -31,9 +31,10 @@ public class AddPlayer extends JPanel{
         String na = nationality.getText();
         String a = age.getText();
         String ra = rating.getText();
-        Competition.players.add(new Player(n,na,Integer.parseInt(a), Integer.parseInt(ra)));
-        Competition.playerChooser.addItem(n);
-        Competition.playerChooser2.addItem(n);
+        Player p = new Player(n,na,Integer.parseInt(a),Integer.parseInt(ra));
+        Competition.players.add(p);
+        Competition.playerChooser2.addItem(p);
+        Competition.playerChooser.addItem(p);
         Collections.sort(Competition.players);
         Rankings.firstPlayer.setText(Competition.players.get(0).name);
         if(Competition.players.size()>1){
