@@ -58,7 +58,7 @@ public class Competition {
 		i1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int instructions = JOptionPane.showConfirmDialog(null,
-						"Hello, there!\nThis is a chess score keeper. You insert new players in the Add Player window, and then you set them against each other in the Competition window.\nYou choose the result, and the players' ranking will change accordingly in the Rankings window.\n\nThanks for using our application.",
+						"Hello, there!\nThis is a chess score keeper. You insert new players in the Add Player window, and then you set them against each other in the Competition window (MAKE SURE TO ALWAYS SELECT THE PLAYERS).\nYou choose the result, and the players' ranking will change accordingly in the Rankings window.\n\nThanks for using our application.",
 						"Instructions", JOptionPane.DEFAULT_OPTION);
 			}
 		});
