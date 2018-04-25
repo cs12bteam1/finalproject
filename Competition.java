@@ -159,6 +159,14 @@ public class Competition {
 				((Player)playerChooser.getSelectedItem()).incrementPoints();
 				writer.println(playerChooser2.getSelectedItem() + ": lost to " + playerChooser.getSelectedItem());
 				writer.flush(); // used instead of writer.close() to stay connected to the stream
+				Collections.sort(Competition.players);
+        Competition.rankingsPanel.removeAll();
+        Competition.rankingsPanel.updateUI();
+        Competition.rankingsPanel.count = 1;
+        for(int i = 0; i<Competition.players.size(); i++){
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          System.out.println("Hi");
+        }
 			}
 		});
 
@@ -168,6 +176,14 @@ public class Competition {
 				writer.println(playerChooser2.getSelectedItem() + ": won against " + playerChooser.getSelectedItem());
 				((Player)playerChooser2.getSelectedItem()).incrementPoints();
 				writer.flush();
+				Collections.sort(Competition.players);
+        Competition.rankingsPanel.removeAll();
+        Competition.rankingsPanel.updateUI();
+        Competition.rankingsPanel.count = 1;
+        for(int i = 0; i<Competition.players.size(); i++){
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          System.out.println("Hi");
+        }
 			}
 		});
 
@@ -178,6 +194,13 @@ public class Competition {
 				writer.println(playerChooser2.getSelectedItem() + ": drew with " + playerChooser.getSelectedItem());
 			  ((Player)playerChooser2.getSelectedItem()).incrementHalfPoints();
 				writer.flush();
+				Collections.sort(Competition.players);
+        Competition.rankingsPanel.removeAll();
+        Competition.rankingsPanel.updateUI();
+        Competition.rankingsPanel.count = 1;
+        for(int i = 0; i<Competition.players.size(); i++){
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+        }
 			}
 		});
 		/**
@@ -190,23 +213,22 @@ public class Competition {
 		window.setLocation(1500, 700);
 		window.setSize(800, 800);
 		window.setVisible(true);
-		
+
 		JFrame addPlayerWindow = new JFrame("Add Player");
 		JPanel panel = new AddPlayer();
 		panel.setBackground(Color.WHITE);
 		addPlayerWindow.setContentPane(panel);
-		addPlayerWindow.setSize(300,500);
-		addPlayerWindow.setLocation(500,0);
+		addPlayerWindow.setSize(300,300);
 		addPlayerWindow.setVisible(true);
 
 		JFrame rankingsWindow = new JFrame("Rankings");
 		rankingsPanel = new Rankings();
 		rankingsPanel.setBackground(Color.WHITE);
 		rankingsWindow.setContentPane(rankingsPanel);
-		rankingsWindow.setSize(500,500);
-		rankingsWindow.setLocation(500,500);
+		rankingsWindow.setSize(300,500);
+		rankingsWindow.setLocation(300,0);
 		rankingsWindow.setVisible(true);
-		
+
 		window.addWindowListener(new WindowListener() {
 			/*****
 			 * Not as unnecessary as it seems. Notice how it contains writer.close() to
