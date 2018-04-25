@@ -18,6 +18,10 @@ import javax.swing.*;
 import java.util.*;
 
 public class Competition {
+
+	public static ArrayList<Player> players = new ArrayList<Player>();
+	public static JComboBox<String> playerChooser;
+	public static JComboBox<String> playerChooser2;
 	/********
 	 * main should be changed if we are to merge our windows in another class
 	 *******/
@@ -34,22 +38,22 @@ public class Competition {
 		Font font = new Font("Verdana", Font.BOLD, 36);
 		Font reducedFont = new Font("Verdana", Font.BOLD, 24);
 		HashMap<String, String> map = new HashMap<String, String>();
-		content.setBackground(Color.BLACK);
+		content.setBackground(Color.BLUE);
 		GridLayout rower = new GridLayout(3, 0, 50, 50);
-		String[] players = { "Player1", "Player2", "Player3", "Player4", "Player5" }; // test players
+
 
 		/**
 		 * GUI pieces Create the JComponents
 		 */
-		JButton win1 = new JButton("Winner");
+		JButton win1 = new JButton("1-0");
 		win1.setBackground(Color.CYAN);
 		win1.setFont(font);
 
-		JButton draw = new JButton("Draw");
+		JButton draw = new JButton("1/2-1/2");
 		draw.setBackground(Color.CYAN);
 		draw.setFont(font);
 
-		JButton win2 = new JButton("Winner");
+		JButton win2 = new JButton("0-1");
 		win2.setBackground(Color.CYAN);
 		win2.setFont(font);
 
@@ -57,11 +61,12 @@ public class Competition {
 		vs.setFont(font);
 		vs.setForeground(Color.WHITE);
 
-		JComboBox<String> playerChooser = new JComboBox<String>(players);
+		playerChooser = new JComboBox<String>();
+		playerChooser2 = new JComboBox<String>();
+
 		playerChooser.setFont(font);
 		playerChooser.setBackground(Color.WHITE);
 
-		JComboBox<String> playerChooser2 = new JComboBox<String>(players);
 		playerChooser2.setFont(font);
 		playerChooser2.setBackground(Color.WHITE);
 
@@ -82,26 +87,26 @@ public class Competition {
 		row1.add(win1);
 		row1.add(playerChooser);
 		row1.add(myHistory);
-		row1.setBackground(Color.BLACK);
+		row1.setBackground(Color.GREEN);
 
 		JPanel row2 = new JPanel();
 		row2.setLayout(rower);
 		row2.add(draw);
 		row2.add(vs);
-		row2.setBackground(Color.BLACK);
+		row2.setBackground(Color.GREEN);
 
 		JPanel row3 = new JPanel();
 		row3.setLayout(rower);
 		row3.add(win2);
 		row3.add(playerChooser2);
 		row3.add(myHistory2);
-		row3.setBackground(Color.BLACK);
+		row3.setBackground(Color.GREEN);
 
 		/**
 		 * FUNCTIONALITY Create the text file, and establish a writer to enter
 		 * information in the file Add buttons functionality
 		 */
-		PrintWriter writer = new PrintWriter("txt/history.txt", "UTF-8"); // up to change, I suppose
+		PrintWriter writer = new PrintWriter("history.txt", "UTF-8"); // up to change, I suppose
 
 		playerChooser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,7 +183,7 @@ public class Competition {
 		content.add(row3);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLocation(1500, 700);
-		window.setSize(2000, 1000);
+		window.setSize(800, 800);
 		window.setVisible(true);
 		window.addWindowListener(new WindowListener() {
 			/*****
@@ -236,10 +241,16 @@ public class Competition {
 			}
 
 		});
+
+		JFrame addPlayerWindow = new JFrame("Add Player");
+		JPanel panel = new AddPlayer();
+		addPlayerWindow.setContentPane(panel);
+		addPlayerWindow.setSize(500,500);
+		addPlayerWindow.setVisible(true);
 	}
 
 	/**
-	 * 
+	 *
 	 * @param map
 	 *            the Hash Map we are using
 	 * @param player
@@ -249,7 +260,7 @@ public class Competition {
 	 *             for BufferdReader
 	 */
 	private static String iShowHistory(HashMap<String, String> map, String player) throws IOException {
-		String path = "txt/history.txt";
+		String path = "history.txt";
 		String line;
 		String printer = "";
 		int count = 1;
