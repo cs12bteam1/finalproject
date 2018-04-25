@@ -189,6 +189,22 @@ public class Competition {
 		window.setLocation(1500, 700);
 		window.setSize(800, 800);
 		window.setVisible(true);
+		
+		
+		JFrame addPlayerWindow = new JFrame("Add Player");
+		JPanel panel = new AddPlayer();
+		addPlayerWindow.setContentPane(panel);
+		addPlayerWindow.setSize(500,500);
+		addPlayerWindow.setLocation(100, 700);
+		addPlayerWindow.setVisible(true);
+
+		JFrame rankingsWindow = new JFrame("Rankings");
+		JPanel rankingsPanel = new Rankings();
+		rankingsWindow.setContentPane(rankingsPanel);
+		rankingsWindow.setLocation(100, 0);
+		rankingsWindow.setSize(500,500);
+		rankingsWindow.setVisible(true);
+		
 		window.addWindowListener(new WindowListener() {
 			/*****
 			 * Not as unnecessary as it seems. Notice how it contains writer.close() to
@@ -245,20 +261,6 @@ public class Competition {
 			}
 
 		});
-
-		JFrame addPlayerWindow = new JFrame("Add Player");
-		JPanel panel = new AddPlayer();
-		addPlayerWindow.setContentPane(panel);
-		addPlayerWindow.setSize(500,500);
-		addPlayerWindow.setLocation(500, 700);
-		addPlayerWindow.setVisible(true);
-
-		JFrame rankingsWindow = new JFrame("Rankings");
-		JPanel rankingsPanel = new Rankings();
-		rankingsWindow.setContentPane(rankingsPanel);
-		rankingsWindow.setLocation(700, 500);
-		rankingsWindow.setSize(500,500);
-		rankingsWindow.setVisible(true);
 	}
 
 	/**
