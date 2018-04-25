@@ -269,7 +269,7 @@ public class Competition {
 
 		JFrame rankingsWindow = new JFrame("Rankings");
 		rankingsPanel = new Rankings();
-		rankingsPanel.setBackground(Color.WHITE);
+		rankingsPanel.setBackground(Color.GREEN);
 		rankingsWindow.setContentPane(rankingsPanel);
 		rankingsWindow.setSize(300,500);
 		rankingsWindow.setLocation(300,0);
