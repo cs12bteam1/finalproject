@@ -20,7 +20,6 @@ public class AddPlayer extends JPanel{
     content.add(header);
 
     header.setFont(font);
-    header.setForeground(Color.WHITE);
 
     JOptionPane warning = new JOptionPane();
 
