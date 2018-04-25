@@ -47,14 +47,17 @@ public class Competition {
 		 * GUI pieces Create the JComponents
 		 */
 		JButton win1 = new JButton("1-0");
+		win1.setToolTipText("Did the player below win the game?");
 		win1.setBackground(Color.CYAN);
 		win1.setFont(font);
 
 		JButton draw = new JButton("1/2-1/2");
+		draw.setToolTipText("Did the players both tie?");
 		draw.setBackground(Color.CYAN);
 		draw.setFont(font);
 
 		JButton win2 = new JButton("0-1");
+		win2.setToolTipText("Did the player below win the game?");
 		win2.setBackground(Color.CYAN);
 		win2.setFont(font);
 
