@@ -14,7 +14,12 @@ public class Player implements Comparator<Player>{
     this.rating = rating;
     points = 0;
   }
-
+  public int getPoints(){
+    return points;
+  }
+  public void incrementPoints(){
+    points++;
+  }
   public int compare(Player player1, Player player2){
     if(player1.points>player2.points){
       return 1;
