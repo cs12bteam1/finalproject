@@ -42,7 +42,40 @@ public class Competition {
 		content.setBackground(Color.BLUE);
 		GridLayout rower = new GridLayout(3, 0, 50, 50);
 
+		JMenu menu;
+		JMenuItem i1, i2;
+		JMenuBar mb = new JMenuBar();
+		menu = new JMenu("Menu");
+		mb.setBackground(Color.GREEN);
+		menu.setFont(font);
+		i1 = new JMenuItem("Instructions");
+		i1.setBackground(Color.GREEN);
+		i1.setFont(font);
+		i2 = new JMenuItem("Exit");
+		i2.setFont(font);
+		i2.setBackground(Color.GREEN);
+		menu.add(i1);
+		i1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int instructions = JOptionPane.showConfirmDialog(null,
+						"Hello, there!\nThis is a chess score keeper. You insert new players in the Add Player window, and then you set them against each other in the Competition window.\nYou choose the result, and the players' ranking will change accordingly in the Rankings window.\n\nThanks for using our application.",
+						"Instructions", JOptionPane.DEFAULT_OPTION);
+			}
+		});
+		i2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int exit = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the program?", "Exit",
+						JOptionPane.YES_NO_OPTION);
 
+				if (exit == JOptionPane.YES_OPTION) {
+					window.dispose();
+				}
+			}
+		});
+		menu.add(i2);
+		mb.add(menu);
+		window.setJMenuBar(mb);
+		
 		/**
 		 * GUI pieces Create the JComponents
 		 */
