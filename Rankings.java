@@ -23,7 +23,8 @@ public class Rankings extends JPanel{
     frame = new JFrame();
 
 
-    content.setLayout(new GridLayout(count,2));
+
+    content.setLayout(new GridLayout(Competition.players.size(),2));
     content.setVisible(true);
   }
 
