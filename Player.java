@@ -39,6 +39,11 @@ public class Player implements Comparator<Player>, Comparable<Player>{
       }
     }
   }
+  
+  public String toString(){
+    return "NAME: " + name + " FROM: " + nationality +
+            " AGE: " + age;
+  }
 
   public int compare(Player player1, Player player2){
     if(player1.points>player2.points){
