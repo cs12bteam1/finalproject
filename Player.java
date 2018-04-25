@@ -20,6 +20,9 @@ public class Player implements Comparator<Player>{
   public void incrementPoints(){
     points++;
   }
+  public void incrementHalfPoints(){
+    points+=1/2;
+  }
   public int compare(Player player1, Player player2){
     if(player1.points>player2.points){
       return 1;
