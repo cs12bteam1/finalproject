@@ -36,18 +36,12 @@ public class AddPlayer extends JPanel{
         Competition.playerChooser2.addItem(p);
         Competition.playerChooser.addItem(p);
         Collections.sort(Competition.players);
-        Rankings.firstPlayer.setText(Competition.players.get(0).name);
-        if(Competition.players.size()>1){
-          Rankings.secondPlayer.setText(Competition.players.get(1).name);
-        }
-        if(Competition.players.size()>2){
-          Rankings.thirdPlayer.setText(Competition.players.get(2).name);
-        }
-        if(Competition.players.size()>3){
-          Rankings.fourthPlayer.setText(Competition.players.get(3).name);
-        }
-        if(Competition.players.size()>4){
-          Rankings.fifthPlayer.setText(Competition.players.get(4).name);
+        Competition.rankingsPanel.removeAll();
+        Competition.rankingsPanel.updateUI();
+        Competition.rankingsPanel.count = 1;
+        for(int i = 0; i<Competition.players.size(); i++){
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          System.out.println("Hi");
         }
       }
     });
