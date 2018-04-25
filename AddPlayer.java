@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class AddPlayer extends JPanel{
 
@@ -34,6 +34,19 @@ public class AddPlayer extends JPanel{
         Competition.players.add(new Player(n,na,Integer.parseInt(a), Integer.parseInt(ra)));
         Competition.playerChooser.addItem(n);
         Competition.playerChooser2.addItem(n);
+        Rankings.firstPlayer.setText(Competition.players.get(0).name);
+        if(Competition.players.size()>1){
+          Rankings.secondPlayer.setText(Competition.players.get(1).name);
+        }
+        if(Competition.players.size()>2){
+          Rankings.thirdPlayer.setText(Competition.players.get(2).name);
+        }
+        if(Competition.players.size()>3){
+          Rankings.fourthPlayer.setText(Competition.players.get(3).name);
+        }
+        if(Competition.players.size()>4){
+          Rankings.fifthPlayer.setText(Competition.players.get(4).name);
+        }
       }
     });
 
