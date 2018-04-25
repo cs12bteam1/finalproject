@@ -5,7 +5,7 @@ public class Player implements Comparator<Player>, Comparable<Player>{
   String nationality;
   int age;
   int rating;
-  int points;
+  double points;
 
   public Player(String n, String na, int a, int rating){
     this.name = n;
@@ -14,7 +14,15 @@ public class Player implements Comparator<Player>, Comparable<Player>{
     this.rating = rating;
     points = 0;
   }
-
+  public double getPoints(){
+    return points;
+  }
+  public void incrementPoints(){
+    points++;
+  }
+  public void incrementHalfPoints(){
+    points+=1/2;
+  }
   public int compareTo(Player player2){
     if(this.points>player2.points){
       return 1;
