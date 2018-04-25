@@ -167,7 +167,7 @@ public class Competition {
         Competition.rankingsPanel.updateUI();
         Competition.rankingsPanel.count = 1;
         for(int i = 0; i<Competition.players.size(); i++){
-          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i));
           System.out.println("Hi");
         }
 			}
@@ -184,7 +184,7 @@ public class Competition {
         Competition.rankingsPanel.updateUI();
         Competition.rankingsPanel.count = 1;
         for(int i = 0; i<Competition.players.size(); i++){
-          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i));
           System.out.println("Hi");
         }
 			}
@@ -202,7 +202,7 @@ public class Competition {
         Competition.rankingsPanel.updateUI();
         Competition.rankingsPanel.count = 1;
         for(int i = 0; i<Competition.players.size(); i++){
-          Competition.rankingsPanel.addPlayer(Competition.players.get(i).name);
+          Competition.rankingsPanel.addPlayer(Competition.players.get(i));
         }
 			}
 		});
