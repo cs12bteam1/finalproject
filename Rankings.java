@@ -20,9 +20,10 @@ public class Rankings extends JPanel{
     //Create a graphical user interface
     super();
     content = this;
+    content.setLayout(new GridBagLayout());
     frame = new JFrame();
-
-
+    Font font = new Font("Verdana", Font.BOLD, 36);
+    content.setFont(font);
 
     content.setLayout(new GridLayout(Competition.players.size(),2));
     content.setVisible(true);
