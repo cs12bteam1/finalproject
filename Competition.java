@@ -141,6 +141,14 @@ public class Competition {
 		row3.add(myHistory2);
 		row3.setBackground(Color.GREEN);
 
+		
+		JScrollPane vertical = new JScrollPane(myHistory);
+       		vertical.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+       		JScrollPane vertical2 = new JScrollPane(myHistory2);
+        	vertical2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+       		row1.add(vertical);
+       		row3.add(vertical2);
 		/**
 		 * FUNCTIONALITY Create the text file, and establish a writer to enter
 		 * information in the file Add buttons functionality
