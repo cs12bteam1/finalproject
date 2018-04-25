@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class Player implements Comparator<Player>{
+public class Player implements Comparator<Player>, Comparable<Player>{
   String name;
   String nationality;
   int age;
   int rating;
-  double points;
+  int points;
 
   public Player(String n, String na, int a, int rating){
     this.name = n;
@@ -14,15 +14,24 @@ public class Player implements Comparator<Player>{
     this.rating = rating;
     points = 0;
   }
-  public double getPoints(){
-    return points;
+
+  public int compareTo(Player player2){
+    if(this.points>player2.points){
+      return 1;
+    }
+    else if(player2.points>this.points){
+      return -1;
+    }
+    else{
+      if(this.rating>player2.rating){
+        return 1;
+      }
+      else{
+        return -1;
+      }
+    }
   }
-  public void incrementPoints(){
-    points++;
-  }
-  public void incrementHalfPoints(){
-    points+=1/2;
-  }
+
   public int compare(Player player1, Player player2){
     if(player1.points>player2.points){
       return 1;
