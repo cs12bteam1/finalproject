@@ -25,34 +25,34 @@ public class Player implements Comparator<Player>, Comparable<Player>{
   }
   public int compareTo(Player player2){
     if(this.points>player2.points){
-      return 1;
+      return -1;
     }
     else if(player2.points>this.points){
-      return -1;
+      return 1;
     }
     else{
       if(this.rating>player2.rating){
-        return 1;
+        return -1;
       }
       else{
-        return -1;
+        return 1;
       }
     }
   }
 
   public int compare(Player player1, Player player2){
     if(player1.points>player2.points){
-      return 1;
+      return -1;
     }
     else if(player2.points>player1.points){
-      return -1;
+      return 1;
     }
     else{
       if(player1.rating>player2.rating){
-        return 1;
+        return -1;
       }
       else{
-        return -1;
+        return 1;
       }
     }
   }
