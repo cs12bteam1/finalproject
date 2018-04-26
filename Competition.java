@@ -17,20 +17,24 @@ import java.io.UnsupportedEncodingException;
 import javax.swing.*;
 import java.util.*;
 
+// This class allows the user to keep information to partially run a chess tournament.
+// It allows the user to add players to the tournament, and then to record the results
+// of games between those players. It automatically shows an updated rankings window.
+
 public class Competition {
 
 	public static ArrayList<Player> players = new ArrayList<Player>();
 	public static JComboBox<Player> playerChooser;
 	public static JComboBox<Player> playerChooser2;
 	public static Rankings rankingsPanel;
-	/********
-	 * main should be changed if we are to merge our windows in another class
-	 *******/
+
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 		/**
 		 * ESSENTIALS Create frame, and main panel, and set the layout Create fonts
 		 * Create the hashmap
 		 */
+
+		 //create the GUI
 		JFrame window = new JFrame("Competition");
 		JPanel content = new JPanel();
 		window.setContentPane(content);
@@ -42,6 +46,7 @@ public class Competition {
 		content.setBackground(Color.BLUE);
 		GridLayout rower = new GridLayout(3, 0, 50, 50);
 
+		//create a menu with instructions
 		JMenu menu;
 		JMenuItem i1, i2;
 		JMenuBar mb = new JMenuBar();
@@ -75,10 +80,9 @@ public class Competition {
 		menu.add(i2);
 		mb.add(menu);
 		window.setJMenuBar(mb);
-		
-		/**
-		 * GUI pieces Create the JComponents
-		 */
+
+		//create results buttons
+
 		JButton win1 = new JButton("1-0");
 		win1.setToolTipText("Click if the player below won the game.");
 		win1.setBackground(Color.CYAN);
@@ -98,6 +102,8 @@ public class Competition {
 		vs.setFont(font);
 		vs.setForeground(Color.WHITE);
 
+		//allow the user to select which players are playing
+
 		playerChooser = new JComboBox<Player>();
 		playerChooser.setToolTipText("Choose the player.");
 		playerChooser2 = new JComboBox<Player>();
@@ -108,6 +114,8 @@ public class Competition {
 
 		playerChooser2.setFont(font);
 		playerChooser2.setBackground(Color.WHITE);
+
+		//show recent player history
 
 		JTextArea myHistory = new JTextArea("No History Available"); // I used text areas instead of labels for
 																		// multiline property
@@ -141,7 +149,7 @@ public class Competition {
 		row3.add(myHistory2);
 		row3.setBackground(Color.GREEN);
 
-		
+		// Allow the user to scroll through history
 		JScrollPane vertical = new JScrollPane(myHistory);
        		vertical.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
        		JScrollPane vertical2 = new JScrollPane(myHistory2);
@@ -194,6 +202,8 @@ public class Competition {
 				}
 			}
 		});
+
+		//For the win1, win2, and draw buttons, the Rankings window is completely redrawn whenever those are clicked
 
 		win1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -260,12 +270,16 @@ public class Competition {
 		window.setSize(800, 800);
 		window.setVisible(true);
 
+		//create AddPlayer window
+
 		JFrame addPlayerWindow = new JFrame("Add Player");
 		JPanel panel = new AddPlayer();
 		panel.setBackground(Color.BLUE);
 		addPlayerWindow.setContentPane(panel);
 		addPlayerWindow.setSize(300,300);
 		addPlayerWindow.setVisible(true);
+
+		//create Rankings window
 
 		JFrame rankingsWindow = new JFrame("Rankings");
 		rankingsPanel = new Rankings();
