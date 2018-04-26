@@ -3,9 +3,14 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
 
+//The AddPlayer class creates a JPanel that allows the user to create new players
+//that will be participating in a chess tournament.
+
 public class AddPlayer extends JPanel{
 
   public AddPlayer(){
+
+    //create the GUI
     super();
     JPanel content = this;
 
@@ -24,6 +29,8 @@ public class AddPlayer extends JPanel{
 
     JOptionPane warning = new JOptionPane();
 
+    //Let the user enter information
+
     JPanel input = new JPanel();
     input.setLayout(new GridLayout(3,1));
     JTextField name = new JTextField("Add name");
@@ -34,6 +41,8 @@ public class AddPlayer extends JPanel{
     input.add(nationality);
     input.add(age);
     input.add(rating);
+
+    //When the user submits a new player, update the players ArrayList and the Rankings
 
     JButton submit = new JButton("Submit");
     submit.addActionListener(new ActionListener(){
@@ -73,6 +82,8 @@ public class AddPlayer extends JPanel{
     content.add(input);
     content.add(page_end);
   }
+
+  //check whether user input is valid
 
   public static boolean isInteger(String s){
     for (char c : s.toCharArray()){
