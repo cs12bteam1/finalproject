@@ -1,6 +1,11 @@
+//This class creates an object of type Player. It contains relevant parameters
+//such as name, nationality, age, rating, and the number of points they have
+//scored in the tournament.
+
 import java.util.*;
 
 public class Player implements Comparator<Player>, Comparable<Player>{
+
   String name;
   String nationality;
   int age;
@@ -12,17 +17,24 @@ public class Player implements Comparator<Player>, Comparable<Player>{
     this.nationality = na;
     this.age = a;
     this.rating = rating;
+    //the player starts at 0 points
     points = 0;
   }
+
   public double getPoints(){
     return points;
   }
+  //called when the player wins
   public void incrementPoints(){
     points++;
   }
+  //called when the player draws
   public void incrementHalfPoints(){
     points+=1/2;
   }
+
+  //The Comporator and Comparable are used to sort a list of type Player
+
   public int compareTo(Player player2){
     if(this.points>player2.points){
       return -1;
